@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="src/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>Filmes Mentoria</title>
+</head>
+
+<body>
+
+
+    <!-- Cabecalho -->
+    <header id="header">
+        <a href=""><img class="logo" src="src/img/logo.png" alt=""></a>
+        <nav class="nav-container">
+            <a onclick="pegaFilme()" class="nav-link inicio" href="#">Ínicio</a>
+            <a onclick="pegaFilme()" class="nav-link" href="#populares">Populares</a>
+            <a onclick="pegaRecomendados()" class="nav-link" href="#recomendados">Recomendados</a>
+            <div>
+                <input id="busca" type="text" value="">
+                <button class="pesquisa" onclick="buscar()">Buscar</button>
+            </div>
+            <!--<button onclick="pegaRecomendados()">Proxima pagina</button>-->
+            <input type="hidden" id="paginaAtual" value="0">
+        </nav>
+        <div id="menu">
+            <div id="menu-bar" onclick="menuOnClick()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <nav class="nav" id="nav">
+                <ul>
+                    <li><a href="#populares">Populares</a></li>
+                    <li><a href="#recomendados">Recomendados</a></li>
+                    <li><a href="#favoritos">Favoritos</a></li>
+                    <li><a href="#contate-nos">Contate-me</a></li>
+                </ul>
+            </nav>
+            <a id="login" style="display: none;" class="login" href="login.html">Login</a>
+            <p id="nomeUsuario"></p>
+        </div>
+
+        <div class="menu-bg" id="menu-bg"></div>
+    </header>
+
+    <!-- Container do ForEach de filmes -->
+    <div class="filmes">
+
+    </div>
+
+
+
+    <footer id="footer">
+        <div class="container-links">
+            <div class="links-item">
+                <h4 class="links-titulo" href="">Flickorama</h4>
+                <a href="">Filmes</a>
+                <a href="">Series</a>
+                <a href="">Animes</a>
+                <a href="">Destaques</a>
+            </div>
+            <div class="links-item">
+                <h4 class="links-titulo" href="">Contate-nos</h4>
+                <a href="">(48) 9 9918-8174</a>
+                <a href="">(48) 9 9675-2468</a>
+                <a href="">Flick@gmail.com</a>
+
+            </div>
+            <div class="links-item">
+                <h4 class="links-titulo" href="">+ infos</h4>
+                <a href="seja-motorista.html">Termos de uso</a>
+                <a href="">Suporte</a>
+                <a href="">Políticas de uso</a>
+            </div>
+            <div class="links-item">
+                <h4 class="links-titulo" href="">Redes socias</h4>
+                <div class="footer-redes">
+                    <a href=""><img src="img/icon _Instagram_.svg" alt=""></a>
+                    <a href=""><img src="img/icon _Facebook_.svg" alt=""></a>
+                    <a href=""><img src="img/icon _LinkedIn_.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container-copyright">
+            <p>©Flickorama - TODOS OS DIREITOS RESERVADOS</p>
+        </div>
+    </footer>
+
+    <script src="src/js/main.js"></script>
+    <script src="src/js/API.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+        loadProducts();
+        var usuarioLogin = JSON.parse(localStorage.getItem("usuario"));
+
+        $('#nomeUsuario').html(`Olá,  ${usuarioLogin.email} `);
+
+        if (usuarioLogin.email != null) {
+
+            $('#nomeUsuario').show(1000);
+        } else {
+            $('#login').show(100);
+        } 
+    </script>
+
+</body>
+
+</html>

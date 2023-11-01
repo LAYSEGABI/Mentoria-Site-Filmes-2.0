@@ -1,0 +1,26 @@
+/* Página de Login */
+
+.login-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+form a {
+    align-self: center;
+    margin: 1em;
+}
